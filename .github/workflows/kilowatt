@@ -1,0 +1,21 @@
+name: Preischecker
+
+on:
+  schedule:
+    - cron: '*/60 * * * *'  # alle 60 Minuten
+  workflow_dispatch:        # manuelles Auslösen möglich
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Python installieren
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Abhängigkeiten installieren (falls nötig)
+        run: pip install requests
+      - name: Skript ausführen
+        run: kilowatt.py
