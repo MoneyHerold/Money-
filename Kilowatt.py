@@ -12,7 +12,7 @@ STEAM_MARKET_URL = (
 )
 
 # Preisschwelle
-TARGET_PRICE = 0.60
+TARGET_PRICE = 0.50
 
 def get_kilowatt_price():
     try:
